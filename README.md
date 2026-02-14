@@ -10,7 +10,7 @@ The API endpoint is: `https://www.tdlr.texas.gov/TABS/Search/SearchProjects`
 
 ## Files Included
 
-1. **tdlr_scraper_fixed.py** - Main Python script with two classes:
+1. **tdlr_scraper.py** - Main Python script with two classes:
    - `TDLRScraper`: Scrapes project data from the TDLR API and stores it in SQLite
    - `ProjectSearcher`: Searches the local database for specific projects
 
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 To scrape project data from the TDLR website:
 ```bash
-python3 tdlr_scraper_fixed.py --scrape
+python3 tdlr_scraper.py --scrape
 ```
 
 Additional options:
@@ -49,19 +49,19 @@ Additional options:
 
 Example - fetch first 100 projects:
 ```bash
-python3 tdlr_scraper_fixed.py --scrape --max-records 100
+python3 tdlr_scraper.py --scrape --max-records 100
 ```
 
 Example - fetch with custom settings:
 ```bash
-python3 tdlr_scraper_fixed.py --scrape --batch-size 15 --delay 2 --max-records 500
+python3 tdlr_scraper.py --scrape --batch-size 15 --delay 2 --max-records 500
 ```
 
 ### Searching the Database
 
 To search for projects in the database:
 ```bash
-python3 tdlr_scraper_fixed.py --search "SEARCH_TERM"
+python3 tdlr_scraper.py --search "SEARCH_TERM"
 ```
 
 The search looks for matches in project numbers, names, and facility names.
@@ -71,7 +71,7 @@ Additional options:
 
 Example:
 ```bash
-python3 tdlr_scraper_fixed.py --search "hospital"
+python3 tdlr_scraper.py --search "hospital"
 ```
 
 ## Database Schema
@@ -129,13 +129,13 @@ python3 test_scraper.py
 
 ```bash
 # Scrape first 100 projects
-python3 tdlr_scraper_fixed.py --scrape --max-records 100
+python3 tdlr_scraper.py --scrape --max-records 100
 
 # Search for projects with "hospital" in the name
-python3 tdlr_scraper_fixed.py --search "hospital"
+python3 tdlr_scraper.py --search "hospital"
 
 # Search for projects with "school" in any field
-python3 tdlr_scraper_fixed.py --search "school"
+python3 tdlr_scraper.py --search "school"
 ```
 
 ## Troubleshooting
